@@ -1,0 +1,19 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Downloaded data (re-download with the pipeline)
+data/raw/*
+!data/raw/.gitkeep
+
+# Trained models (retrain with the pipeline)
+models/*
+!models/.gitkeep
+
+# Editor and OS files
+.vscode/
+Thumbs.db
+.DS_Store

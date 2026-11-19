@@ -1,0 +1,124 @@
+{
+  "generated_at": "2026-11-19T10:54:06.734694+00:00",
+  "model": {
+    "test_period": "01 Nov 2025 to 08 Nov 2026",
+    "test_matches": 380,
+    "accuracy": 0.432,
+    "log_loss": 1.114,
+    "baseline_accuracy": 0.4,
+    "baseline_log_loss": 1.099
+  },
+  "message": "",
+  "matches": [
+    {
+      "date": "2026-11-21",
+      "home": "Man City",
+      "away": "Fulham",
+      "probs": {
+        "home": 0.512,
+        "draw": 0.242,
+        "away": 0.246
+      },
+      "pick": "home"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Aston Villa",
+      "away": "Sunderland",
+      "probs": {
+        "home": 0.556,
+        "draw": 0.213,
+        "away": 0.232
+      },
+      "pick": "home"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Bournemouth",
+      "away": "Nott'm Forest",
+      "probs": {
+        "home": 0.443,
+        "draw": 0.218,
+        "away": 0.339
+      },
+      "pick": "home"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Chelsea",
+      "away": "Leeds",
+      "probs": {
+        "home": 0.499,
+        "draw": 0.256,
+        "away": 0.245
+      },
+      "pick": "home"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Coventry",
+      "away": "Crystal Palace",
+      "probs": {
+        "home": 0.647,
+        "draw": 0.227,
+        "away": 0.126
+      },
+      "pick": "home"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Tottenham",
+      "away": "Ipswich",
+      "probs": {
+        "home": 0.643,
+        "draw": 0.172,
+        "away": 0.186
+      },
+      "pick": "home"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Newcastle",
+      "away": "Arsenal",
+      "probs": {
+        "home": 0.216,
+        "draw": 0.433,
+        "away": 0.351
+      },
+      "pick": "draw"
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Hull",
+      "away": "Brighton",
+      "probs": {
+        "home": 0.157,
+        "draw": 0.349,
+        "away": 0.493
+      },
+      "pick": "away"
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Liverpool",
+      "away": "Man United",
+      "probs": {
+        "home": 0.449,
+        "draw": 0.22,
+        "away": 0.331
+      },
+      "pick": "home"
+    },
+    {
+      "date": "2026-11-23",
+      "home": "Brentford",
+      "away": "Everton",
+      "probs": {
+        "home": 0.366,
+        "draw": 0.265,
+        "away": 0.369
+      },
+      "pick": "away"
+    }
+  ]
+}

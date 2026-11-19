@@ -1,0 +1,14 @@
+[
+  {
+    "id": "match-predictor",
+    "title": "Match Predictor",
+    "module": "./projects/matchPredictor.js",
+    "data": "data/match_predictor.json"
+  },
+  {
+    "id": "league-table",
+    "title": "League Table",
+    "module": "./projects/leagueTable.js",
+    "data": "data/league_table.json"
+  }
+]
