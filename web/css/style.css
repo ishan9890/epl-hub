@@ -194,3 +194,51 @@ th {
   font-weight: 600;
   font-size: 0.85rem;
 }
+.round {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin: 0.75rem 0;
+  padding: 0.25rem 1rem;
+}
+
+.round > summary {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+  padding: 0.75rem 0;
+}
+
+.round[open] > summary {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+}
+
+.round .stats {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.chip {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+}
+
+.chip-pred {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.results-table th,
+.results-table td {
+  text-align: left;
+}
+
+.notice p {
+  margin: 0.25rem 0;
+}

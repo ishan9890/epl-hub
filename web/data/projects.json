@@ -10,5 +10,11 @@
     "title": "League Table",
     "module": "./projects/leagueTable.js",
     "data": "data/league_table.json"
+  },
+  {
+  "id": "results",
+  "title": "Results",
+  "module": "./projects/results.js",
+  "data": "data/tracker.json"
   }
 ]

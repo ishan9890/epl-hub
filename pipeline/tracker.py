@@ -5,12 +5,18 @@ from pathlib import Path
 
 import pandas as pd
 
-from .config import HISTORY, WEB_DATA
+from .config import CURRENT, HISTORY, WEB_DATA
 from .features import load_played
 
 LABELS = ["home", "draw", "away"]
 RESULT_NAME = {"H": "home", "D": "draw", "A": "away"}
 MIN_P = 1e-6   # stops log(0) from blowing up
+
+
+def date_label(first, last):
+    if first.date() == last.date():
+        return f"{first:%d %b %Y}"
+    return f"{first:%d %b} to {last:%d %b %Y}"
 
 
 def load_snapshots(history_dir):
@@ -45,33 +51,8 @@ def attach_results(preds, played):
     return preds.merge(cand, on="pid", how="left")
 
 
-def save(out, out_file):
-    out_file = Path(out_file)
-    out_file.parent.mkdir(parents=True, exist_ok=True)
-    out_file.write_text(json.dumps(out, indent=2), encoding="utf-8")
-
-
-def build_tracker(history_dir=HISTORY, out_file=None):
-    out_file = out_file or (WEB_DATA / "tracker.json")
-    Path(history_dir).mkdir(parents=True, exist_ok=True)
-
-    out = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "message": "",
-        "summary": None,
-        "rounds": [],
-    }
-
-    preds = load_snapshots(history_dir)
-    if preds.empty:
-        out["message"] = "No archived predictions yet. Rounds appear here once they are saved."
-        save(out, out_file)
-        print("tracker: no snapshots yet; wrote an empty tracker file")
-        return out
-
-    played = load_played()
-    preds = attach_results(preds, played)
-
+def score_rounds(preds, played):
+    """Score every saved round. Returns (rounds, summary)."""
     tot = {"n": 0, "correct": 0, "ll": 0.0, "b_correct": 0, "b_ll": 0.0, "pending": 0}
     rounds = []
 
@@ -120,7 +101,9 @@ def build_tracker(history_dir=HISTORY, out_file=None):
         pending = len(matches) - n
         rounds.append({
             "snapshot": snap,
-            "label": f"{first:%d %b} to {last:%d %b %Y}",
+            "has_predictions": True,
+            "first_date": first.strftime("%Y-%m-%d"),
+            "label": date_label(first, last),
             "matches": matches,
             "played": n,
             "pending": pending,
@@ -146,11 +129,86 @@ def build_tracker(history_dir=HISTORY, out_file=None):
             baseline_accuracy=round(tot["b_correct"] / n, 3),
             baseline_log_loss=round(tot["b_ll"] / n, 3),
         )
+    return rounds, summary
 
-    out["summary"] = summary
-    out["rounds"] = list(reversed(rounds))          # newest first
+
+def split_into_rounds(df):
+    """Group matches into rounds: a new round starts when a team would play twice."""
+    rounds, current, seen = [], [], set()
+    for row in df.sort_values("Date", kind="stable").itertuples():
+        teams = {row.HomeTeam, row.AwayTeam}
+        if seen & teams:
+            rounds.append(current)
+            current, seen = [], set()
+        current.append(row)
+        seen |= teams
+    if current:
+        rounds.append(current)
+    return rounds
+
+
+def results_only_rounds(played, covered_pairs):
+    """This season's earlier rounds: real scores, no predictions."""
+    season = played[played["season"] == CURRENT]
+    out = []
+    for rnd in split_into_rounds(season):
+        pairs = {(r.HomeTeam, r.AwayTeam) for r in rnd}
+        if pairs & covered_pairs:
+            continue            # this round has saved predictions, shown separately
+        dates = [r.Date for r in rnd]
+        first, last = min(dates), max(dates)
+        out.append({
+            "snapshot": None,
+            "has_predictions": False,
+            "first_date": first.strftime("%Y-%m-%d"),
+            "label": date_label(first, last),
+            "matches": [
+                {
+                    "date": r.Date.strftime("%Y-%m-%d"),
+                    "home": r.HomeTeam,
+                    "away": r.AwayTeam,
+                    "score": f"{int(r.FTHG)}-{int(r.FTAG)}",
+                    "result": RESULT_NAME[r.FTR],
+                }
+                for r in sorted(rnd, key=lambda r: r.Date)
+            ],
+        })
+    return out
+
+
+def save(out, out_file):
+    out_file = Path(out_file)
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+    out_file.write_text(json.dumps(out, indent=2), encoding="utf-8")
+
+
+def build_tracker(history_dir=HISTORY, out_file=None):
+    out_file = out_file or (WEB_DATA / "tracker.json")
+    Path(history_dir).mkdir(parents=True, exist_ok=True)
+    played = load_played()
+
+    predicted, covered = [], set()
+    summary = {"rounds": 0, "matches_played": 0, "matches_pending": 0}
+
+    preds = load_snapshots(history_dir)
+    if not preds.empty:
+        preds = attach_results(preds, played)
+        covered = set(zip(preds["home"], preds["away"]))
+        predicted, summary = score_rounds(preds, played)
+
+    earlier = results_only_rounds(played, covered)
+    rounds = sorted(predicted + earlier, key=lambda r: r["first_date"], reverse=True)
+
+    out = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "message": "" if rounds else "No results yet.",
+        "tracking_started": min((r["first_date"] for r in predicted), default=None),
+        "summary": summary,
+        "rounds": rounds,
+    }
     save(out, out_file)
-    print("tracker:", json.dumps(summary))
+    print(f"tracker: {len(predicted)} predicted round(s), {len(earlier)} results-only round(s)")
+    print("tracker summary:", json.dumps(summary))
     return out
 
 
