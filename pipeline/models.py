@@ -4,7 +4,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 
-MODEL_NAME = "Blend (logistic regression + cautious XGBoost)"
+MODEL_NAME = "Blend + Elo (logistic regression + cautious XGBoost)"
 
 
 def make_xgb():

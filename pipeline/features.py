@@ -1,5 +1,6 @@
 import pandas as pd
 from .config import RAW, SEASONS, WINDOW
+from .elo import compute_elo
 
 STATS = ["gf", "ga", "shots", "sot", "shots_against", "points"]
 COLS = ["Date", "season", "HomeTeam", "AwayTeam",
@@ -108,6 +109,19 @@ def build_features(played, upcoming=None):
     h = tm[tm["is_home"] == 1].set_index("match_id")[feat_cols].add_prefix("home_")
     a = tm[tm["is_home"] == 0].set_index("match_id")[feat_cols].add_prefix("away_")
     data = df.join(h).join(a)
+     # Elo: rating stored BEFORE each match, updated after (see elo.py)
+    elo = compute_elo(df)
+    aligned = (
+        (elo["Date"].values == df["Date"].values).all()
+        and (elo["HomeTeam"].values == df["HomeTeam"].values).all()
+        and (elo["AwayTeam"].values == df["AwayTeam"].values).all()
+    )
+    if not aligned:
+        raise ValueError("Elo rows do not line up with match rows")
+    data["home_elo"] = elo["elo_home"].values
+    data["away_elo"] = elo["elo_away"].values
+    data["diff_elo"] = data["home_elo"] - data["away_elo"]
+
 
     # difference features: how much better is the home side?
     for s in STATS:
