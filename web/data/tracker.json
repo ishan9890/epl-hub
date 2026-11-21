@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T06:52:47.116685+00:00",
+  "generated_at": "2026-11-21T04:47:54.197835+00:00",
   "message": "",
   "tracking_started": "2026-11-21",
   "summary": {
@@ -11,6 +11,7 @@
     {
       "snapshot": "pred_2026-11-21",
       "has_predictions": true,
+      "model_name": "XGBoost (original)",
       "first_date": "2026-11-21",
       "label": "21 Nov to 23 Nov 2026",
       "matches": [

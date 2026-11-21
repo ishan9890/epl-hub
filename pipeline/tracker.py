@@ -33,6 +33,7 @@ def load_snapshots(history_dir):
                 "p_draw": float(m["probs"]["draw"]),
                 "p_away": float(m["probs"]["away"]),
                 "pick": m["pick"],
+                "model_name": snap.get("model", {}).get("model_name", "XGBoost (original)"),
             })
     return pd.DataFrame(rows)
 
@@ -102,6 +103,7 @@ def score_rounds(preds, played):
         rounds.append({
             "snapshot": snap,
             "has_predictions": True,
+            "model_name": grp["model_name"].iloc[0],
             "first_date": first.strftime("%Y-%m-%d"),
             "label": date_label(first, last),
             "matches": matches,

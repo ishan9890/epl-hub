@@ -2,11 +2,10 @@ import json
 
 import numpy as np
 from sklearn.metrics import log_loss
-from xgboost import XGBClassifier
 
 from .config import MODELS
 from .features import build_features, load_played
-from .train import make_logit, make_xgb
+from .models import make_logit, make_xgb, make_xgb_small
 
 N_BLOCKS = 6        # how many test blocks
 MIN_TRAIN = 1000    # the first test block starts after this many matches
@@ -15,17 +14,7 @@ NAMES = ["baseline", "logit", "xgb", "xgb_small", "blend"]
 EDGES = [0.0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0001]
 
 
-def make_xgb_small():
-    return XGBClassifier(
-        objective="multi:softprob",
-        n_estimators=150,
-        max_depth=2,
-        min_child_weight=5,
-        learning_rate=0.03,
-        subsample=0.8,
-        colsample_bytree=0.8,
-        random_state=42,
-    )
+
 
 
 def predict_baseline(X_tr, y_tr, X_te):

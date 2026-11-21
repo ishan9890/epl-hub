@@ -80,6 +80,7 @@ function roundBlock(round, open) {
 
   if (round.has_predictions) {
     head.append(el("span", "chip chip-pred", "Predictions made"));
+    head.append(el("span", "chip", round.model_name));
     const stats = round.played > 0
       ? `${round.correct}/${round.played} correct · log loss ${round.log_loss} ` +
         `(baseline ${round.baseline_log_loss})` +

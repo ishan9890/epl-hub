@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-11-20T06:04:17.769435+00:00",
+  "generated_at": "2026-11-21T04:47:46.856819+00:00",
   "model": {
+    "model_name": "Blend (logistic regression + cautious XGBoost)",
     "test_period": "01 Nov 2025 to 08 Nov 2026",
     "test_matches": 380,
-    "accuracy": 0.432,
-    "log_loss": 1.114,
+    "accuracy": 0.45,
+    "log_loss": 1.079,
     "baseline_accuracy": 0.4,
     "baseline_log_loss": 1.099
   },
@@ -15,9 +16,9 @@
       "home": "Man City",
       "away": "Fulham",
       "probs": {
-        "home": 0.512,
-        "draw": 0.242,
-        "away": 0.246
+        "home": 0.481,
+        "draw": 0.237,
+        "away": 0.282
       },
       "pick": "home"
     },
@@ -26,9 +27,9 @@
       "home": "Aston Villa",
       "away": "Sunderland",
       "probs": {
-        "home": 0.556,
-        "draw": 0.213,
-        "away": 0.232
+        "home": 0.506,
+        "draw": 0.273,
+        "away": 0.222
       },
       "pick": "home"
     },
@@ -37,9 +38,9 @@
       "home": "Bournemouth",
       "away": "Nott'm Forest",
       "probs": {
-        "home": 0.443,
-        "draw": 0.218,
-        "away": 0.339
+        "home": 0.487,
+        "draw": 0.258,
+        "away": 0.255
       },
       "pick": "home"
     },
@@ -48,9 +49,9 @@
       "home": "Chelsea",
       "away": "Leeds",
       "probs": {
-        "home": 0.499,
-        "draw": 0.256,
-        "away": 0.245
+        "home": 0.531,
+        "draw": 0.228,
+        "away": 0.241
       },
       "pick": "home"
     },
@@ -59,9 +60,9 @@
       "home": "Coventry",
       "away": "Crystal Palace",
       "probs": {
-        "home": 0.647,
-        "draw": 0.227,
-        "away": 0.126
+        "home": 0.555,
+        "draw": 0.259,
+        "away": 0.186
       },
       "pick": "home"
     },
@@ -70,9 +71,9 @@
       "home": "Tottenham",
       "away": "Ipswich",
       "probs": {
-        "home": 0.643,
-        "draw": 0.172,
-        "away": 0.186
+        "home": 0.644,
+        "draw": 0.191,
+        "away": 0.165
       },
       "pick": "home"
     },
@@ -81,20 +82,20 @@
       "home": "Newcastle",
       "away": "Arsenal",
       "probs": {
-        "home": 0.216,
-        "draw": 0.433,
-        "away": 0.351
+        "home": 0.29,
+        "draw": 0.298,
+        "away": 0.412
       },
-      "pick": "draw"
+      "pick": "away"
     },
     {
       "date": "2026-11-22",
       "home": "Hull",
       "away": "Brighton",
       "probs": {
-        "home": 0.157,
-        "draw": 0.349,
-        "away": 0.493
+        "home": 0.179,
+        "draw": 0.263,
+        "away": 0.558
       },
       "pick": "away"
     },
@@ -103,9 +104,9 @@
       "home": "Liverpool",
       "away": "Man United",
       "probs": {
-        "home": 0.449,
-        "draw": 0.22,
-        "away": 0.331
+        "home": 0.465,
+        "draw": 0.26,
+        "away": 0.275
       },
       "pick": "home"
     },
@@ -114,9 +115,9 @@
       "home": "Brentford",
       "away": "Everton",
       "probs": {
-        "home": 0.366,
-        "draw": 0.265,
-        "away": 0.369
+        "home": 0.335,
+        "draw": 0.269,
+        "away": 0.397
       },
       "pick": "away"
     }
