@@ -15,11 +15,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if not args.skip_download:
-        download(only_current=not args.all)
-        train()
-        predict_next_matchweek()
-        build_table()
-        build_tracker()
+            download(only_current=not args.all)
+    train()
+    predict_next_matchweek()
+    build_table()
+    build_tracker()
     print("\nweekly update finished.")
   
     

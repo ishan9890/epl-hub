@@ -94,7 +94,9 @@ def build_features(played, upcoming=None):
         "shots": df["AS"], "sot": df["AST"], "shots_against": df["HS"],
     })
     tm = pd.concat([home, away]).sort_values(["team", "Date"]).reset_index(drop=True)
-    tm["points"] = (tm["gf"] > tm["ga"]) * 3 + (tm["gf"] == tm["ga"]) * 1
+    tm["points"] = ((tm["gf"] > tm["ga"]) * 3 + (tm["gf"] == tm["ga"]) * 1).where(
+    tm["gf"].notna() & tm["ga"].notna()
+    )
 
     # rolling averages of each team's PREVIOUS matches
     for s in STATS:

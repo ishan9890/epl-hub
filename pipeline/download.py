@@ -33,10 +33,10 @@ def download(only_current=True):
         except Exception as err:
             print(f"COULD NOT download season {s}: {err}")
 
-        try:
-            download_fpl_fixtures()
-        except Exception as err:
-            print(f"COULD NOT download FPL fixtures: {err}")
+    try:
+        download_fpl_fixtures()
+    except Exception as err:
+        print(f"COULD NOT download FPL fixtures: {err}")
 
 
 if __name__ == "__main__":
