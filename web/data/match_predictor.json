@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T04:47:46.856819+00:00",
+  "generated_at": "2026-11-21T08:49:32.063624+00:00",
   "model": {
     "model_name": "Blend (logistic regression + cautious XGBoost)",
     "test_period": "01 Nov 2025 to 08 Nov 2026",
