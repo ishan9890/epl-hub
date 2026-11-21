@@ -27,7 +27,7 @@ The JSON files in `web/data/` are the only link between the two halves. New proj
 
 - Rolling averages over each team's previous 5 games: goals scored and conceded, shots, shots on target, shots conceded, and points
 - Rest days since the last match
-- An **Elo rating** for each team, calculated from the match results already downloaded (no extra data source). Every team starts at 1450 in September 2020, with K = `FILL IN` and a home advantage of `FILL IN`. The rating used for a match is the one **before** that match is played
+- An **Elo rating** for each team, calculated from the match results already downloaded (no extra data source). Every team starts at 1450 in September 2020, with Every team starts at 1450 (a newly seen team also enters at 1450), with K = 20 and a home advantage of 65 rating points.. The rating used for a match is the one **before** that match is played
 - Home-minus-away differences of the above
 
 **Model:** an equal-weight blend of logistic regression and a cautious XGBoost (shallow trees, few of them, with a minimum amount of data per leaf). Averaging the two keeps the probabilities better calibrated than XGBoost alone.
@@ -42,14 +42,14 @@ All numbers come from `python -m pipeline.evaluate`: an expanding-window test ov
 |---|---|---|
 | Baseline (historical home/draw/away rates) | 0.434 | 1.072 |
 | Logistic regression, with Elo | 0.527 | 0.995 |
-| XGBoost (original settings), with Elo | — | 1.022 |
+| XGBoost (original settings), with Elo | 0.518 | 1.022 |
 | Cautious XGBoost, with Elo | 0.533 | 0.999 |
 | **Blend, with Elo** | **0.532** | **0.993** |
 | Blend, without Elo (previous model) | 0.508 | 1.019 |
 
 - The blend beats the baseline in log loss by 0.080, with a 2-standard-error range of ±0.023.
-- Adding Elo improved the blend by 0.026 (±0.012, paired comparison on the same matches), and it improved in all six blocks. The Elo settings were fixed before testing and compared once, to avoid tuning on the test results.
-- The three Elo models are statistically close to each other, so the choice among them is not a strong claim.
+- All four models with Elo beat the baseline clearly and are statistically close to each other. No head-to-head test has been run, so the choice among them is not a strong claim.
+- Calibration is imperfect at the extremes. For the blend, predictions of 50-60% happened 48.5% of the time (334 matches), and logistic regression and the original XGBoost are more overconfident than the blend.
 
 **Honest caveats**
 
