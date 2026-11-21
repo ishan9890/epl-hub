@@ -12,6 +12,7 @@ TEST_SIZE = 380   # newest matches held back for a quick honest check
 
 
 def score(y_true, probs):
+    probs = probs / probs.sum(axis=1, keepdims=True)
     return {
         "accuracy": round(float(accuracy_score(y_true, probs.argmax(axis=1))), 3),
         "log_loss": round(float(log_loss(y_true, probs, labels=[0, 1, 2])), 3),
