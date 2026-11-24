@@ -51,7 +51,8 @@ All numbers come from `python -m pipeline.evaluate`: an expanding-window test ov
 - The blend's edge over the baseline has shrunk in recent blocks (about 0.128 in the first block, 0.034 in the last). It is still positive, but the live tracker is the cleaner test.
 - Adding Elo improved the blend in all six blocks. On the earlier 1,319-match set, the blend went from 0.508 accuracy / 1.019 log loss without Elo to 0.532 / 0.993 with it, and a paired test gave -0.0264 ± 0.0123.
 - Calibration is imperfect at the extremes. For the blend, predictions of 50-60% happened 48.5% of the time (334 matches), and logistic regression and the original XGBoost are more overconfident than the blend.
-- Temperature scaling (one-parameter softening of the blend's probabilities, fitted walk-forward) improved log loss by 0.0012 ± 0.0028 over 1,107 matches. That is not distinguishable from zero, so no calibration step was added. The blend underpredicts draws slightly (22% predicted against 25% actual); this is being watched on the live tracker..
+- Temperature scaling (one-parameter softening of the blend's probabilities, fitted walk-forward) improved log loss by 0.0012 ± 0.0028 over 1,107 matches. That is not distinguishable from zero, so no calibration step was added. The blend underpredicts draws slightly (22% predicted against 25% actual); this is being watched on the live tracker.
+- Benchmark against bookmakers (measurement only, never used as a feature): Bet365 closing odds, with the margin normalised away, scored 0.964 log loss on the same 1,329 matches against the blend's 0.994 (difference -0.029 ± 0.011, better in all six blocks). The blend therefore closes most of the gap between the baseline (1.072) and the market, but not all of it; the market also sees late news such as line-ups.
 
 **Honest caveats**
 
@@ -60,6 +61,7 @@ All numbers come from `python -m pipeline.evaluate`: an expanding-window test ov
 - Newly promoted teams start at an Elo of 1450 and have little history, so their predictions are less informed.
 - Ten matches per round is far too few to judge a model. The live tracker needs dozens of rounds.
 - A diagnostic (`python -m pipeline.promoted_check`) compared expected and actual points for newly arrived teams over 387 out-of-sample team-matches. They earned 0.10 fewer points per match than predicted (±0.11), which can't be distinguished from zero, so no promoted-team fix was made. Revisit with more seasons of data.
+- Adding five older seasons (2015-16 to 2019-20) to the training data was tested as a pre-registered experiment on the same 1,329 test matches. The blend's log loss changed by -0.0048 ± 0.0070, inside the noise, and only 3 of 6 blocks improved, so it was not adopted.
 
 ## Results tracker
 
