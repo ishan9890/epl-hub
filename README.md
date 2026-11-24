@@ -57,6 +57,7 @@ All numbers come from `python -m pipeline.evaluate`: an expanding-window test ov
 - One calibration bucket (predictions of 50-60%) is somewhat overconfident: 0.545 predicted, 0.485 observed.
 - Newly promoted teams start at an Elo of 1450 and have little history, so their predictions are less informed.
 - Ten matches per round is far too few to judge a model. The live tracker needs dozens of rounds.
+- A diagnostic (`python -m pipeline.promoted_check`) compared expected and actual points for newly arrived teams over 387 out-of-sample team-matches. They earned 0.10 fewer points per match than predicted (±0.11), which can't be distinguished from zero, so no promoted-team fix was made. Revisit with more seasons of data.
 
 ## Results tracker
 
