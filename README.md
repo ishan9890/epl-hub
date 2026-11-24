@@ -36,21 +36,22 @@ The JSON files in `web/data/` are the only link between the two halves. New proj
 
 ## Evaluation
 
-All numbers come from `python -m pipeline.evaluate`: an expanding-window test over **1,319 matches** (April 2023 to November 2026, 6 consecutive blocks). The model trains on everything before each block and predicts the block. Features only look backward, so there is no peeking.
+All numbers come from `python -m pipeline.evaluate`: an expanding-window test over **1,329 matches** (April 2023 to 23 November 2026, 6 consecutive blocks). The model trains on everything before each block and predicts the block. Features only look backward, so there is no peeking.
 
 | Model | Accuracy | Log loss (lower is better) |
 |---|---|---|
-| Baseline (historical home/draw/away rates) | 0.434 | 1.072 |
+| Baseline (historical home/draw/away rates) | 0.436 | 1.072 |
 | Logistic regression, with Elo | 0.527 | 0.995 |
-| XGBoost (original settings), with Elo | 0.518 | 1.022 |
-| Cautious XGBoost, with Elo | 0.533 | 0.999 |
-| **Blend, with Elo** | **0.532** | **0.993** |
-| Blend, without Elo (previous model) | 0.508 | 1.019 |
+| XGBoost (original settings), with Elo | 0.515 | 1.026 |
+| Cautious XGBoost, with Elo | 0.536 | 1.000 |
+| **Blend, with Elo** | **0.529** | **0.994** |
 
-- The blend beats the baseline in log loss by 0.080, with a 2-standard-error range of ±0.023.
+- The blend beats the baseline in log loss by 0.078, with a 2-standard-error range of ±0.023.
 - All four models with Elo beat the baseline clearly and are statistically close to each other. No head-to-head test has been run, so the choice among them is not a strong claim.
+- The blend's edge over the baseline has shrunk in recent blocks (about 0.128 in the first block, 0.034 in the last). It is still positive, but the live tracker is the cleaner test.
+- Adding Elo improved the blend in all six blocks. On the earlier 1,319-match set, the blend went from 0.508 accuracy / 1.019 log loss without Elo to 0.532 / 0.993 with it, and a paired test gave -0.0264 ± 0.0123.
 - Calibration is imperfect at the extremes. For the blend, predictions of 50-60% happened 48.5% of the time (334 matches), and logistic regression and the original XGBoost are more overconfident than the blend.
-- Temperature scaling (one-parameter softening of the blend's probabilities, fitted walk-forward) improved log loss by 0.0012 ± 0.0028 over 1,107 matches. That is not distinguishable from zero, so no calibration step was added. The blend underpredicts draws slightly (22% predicted against 25% actual); this is being watched on the live tracker.
+- Temperature scaling (one-parameter softening of the blend's probabilities, fitted walk-forward) improved log loss by 0.0012 ± 0.0028 over 1,107 matches. That is not distinguishable from zero, so no calibration step was added. The blend underpredicts draws slightly (22% predicted against 25% actual); this is being watched on the live tracker..
 
 **Honest caveats**
 
