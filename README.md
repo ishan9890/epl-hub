@@ -50,6 +50,7 @@ All numbers come from `python -m pipeline.evaluate`: an expanding-window test ov
 - The blend beats the baseline in log loss by 0.080, with a 2-standard-error range of ±0.023.
 - All four models with Elo beat the baseline clearly and are statistically close to each other. No head-to-head test has been run, so the choice among them is not a strong claim.
 - Calibration is imperfect at the extremes. For the blend, predictions of 50-60% happened 48.5% of the time (334 matches), and logistic regression and the original XGBoost are more overconfident than the blend.
+- Temperature scaling (one-parameter softening of the blend's probabilities, fitted walk-forward) improved log loss by 0.0012 ± 0.0028 over 1,107 matches. That is not distinguishable from zero, so no calibration step was added. The blend underpredicts draws slightly (22% predicted against 25% actual); this is being watched on the live tracker.
 
 **Honest caveats**
 
