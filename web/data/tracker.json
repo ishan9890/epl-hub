@@ -1,13 +1,182 @@
 {
-  "generated_at": "2026-11-21T08:49:38.199035+00:00",
+  "generated_at": "2026-11-24T05:17:58.617524+00:00",
   "message": "",
   "tracking_started": "2026-11-21",
   "summary": {
-    "rounds": 1,
-    "matches_played": 0,
-    "matches_pending": 10
+    "rounds": 2,
+    "matches_played": 10,
+    "matches_pending": 10,
+    "accuracy": 0.4,
+    "accuracy_se": 0.155,
+    "log_loss": 1.07,
+    "baseline_accuracy": 0.6,
+    "baseline_log_loss": 1.048
   },
   "rounds": [
+    {
+      "snapshot": "pred_2026-11-27",
+      "has_predictions": true,
+      "model_name": "Blend + Elo (logistic regression + cautious XGBoost)",
+      "first_date": "2026-11-27",
+      "label": "27 Nov to 29 Nov 2026",
+      "matches": [
+        {
+          "date": "2026-11-27",
+          "home": "Nott'm Forest",
+          "away": "Chelsea",
+          "probs": {
+            "home": 0.371,
+            "draw": 0.267,
+            "away": 0.362
+          },
+          "pick": "home",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        },
+        {
+          "date": "2026-11-28",
+          "home": "Leeds",
+          "away": "Coventry",
+          "probs": {
+            "home": 0.542,
+            "draw": 0.239,
+            "away": 0.219
+          },
+          "pick": "home",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        },
+        {
+          "date": "2026-11-28",
+          "home": "Man United",
+          "away": "Brentford",
+          "probs": {
+            "home": 0.467,
+            "draw": 0.235,
+            "away": 0.298
+          },
+          "pick": "home",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        },
+        {
+          "date": "2026-11-28",
+          "home": "Ipswich",
+          "away": "Aston Villa",
+          "probs": {
+            "home": 0.212,
+            "draw": 0.252,
+            "away": 0.536
+          },
+          "pick": "away",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        },
+        {
+          "date": "2026-11-29",
+          "home": "Everton",
+          "away": "Liverpool",
+          "probs": {
+            "home": 0.232,
+            "draw": 0.267,
+            "away": 0.501
+          },
+          "pick": "away",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        },
+        {
+          "date": "2026-11-29",
+          "home": "Brighton",
+          "away": "Newcastle",
+          "probs": {
+            "home": 0.566,
+            "draw": 0.23,
+            "away": 0.204
+          },
+          "pick": "home",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        },
+        {
+          "date": "2026-11-29",
+          "home": "Crystal Palace",
+          "away": "Hull",
+          "probs": {
+            "home": 0.359,
+            "draw": 0.251,
+            "away": 0.389
+          },
+          "pick": "away",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        },
+        {
+          "date": "2026-11-29",
+          "home": "Fulham",
+          "away": "Bournemouth",
+          "probs": {
+            "home": 0.327,
+            "draw": 0.284,
+            "away": 0.389
+          },
+          "pick": "away",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        },
+        {
+          "date": "2026-11-29",
+          "home": "Sunderland",
+          "away": "Tottenham",
+          "probs": {
+            "home": 0.288,
+            "draw": 0.331,
+            "away": 0.38
+          },
+          "pick": "away",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        },
+        {
+          "date": "2026-11-29",
+          "home": "Arsenal",
+          "away": "Man City",
+          "probs": {
+            "home": 0.48,
+            "draw": 0.246,
+            "away": 0.274
+          },
+          "pick": "home",
+          "result": null,
+          "score": null,
+          "correct": null,
+          "log_loss": null
+        }
+      ],
+      "played": 0,
+      "pending": 10,
+      "correct": 0,
+      "log_loss": null,
+      "baseline_log_loss": null
+    },
     {
       "snapshot": "pred_2026-11-21",
       "has_predictions": true,
@@ -25,10 +194,10 @@
             "away": 0.282
           },
           "pick": "home",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "draw",
+          "score": "1-1",
+          "correct": false,
+          "log_loss": 1.44
         },
         {
           "date": "2026-11-21",
@@ -40,10 +209,10 @@
             "away": 0.222
           },
           "pick": "home",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "draw",
+          "score": "0-0",
+          "correct": false,
+          "log_loss": 1.298
         },
         {
           "date": "2026-11-21",
@@ -55,10 +224,10 @@
             "away": 0.255
           },
           "pick": "home",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "home",
+          "score": "2-0",
+          "correct": true,
+          "log_loss": 0.719
         },
         {
           "date": "2026-11-21",
@@ -70,10 +239,10 @@
             "away": 0.241
           },
           "pick": "home",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "away",
+          "score": "1-4",
+          "correct": false,
+          "log_loss": 1.423
         },
         {
           "date": "2026-11-21",
@@ -85,10 +254,10 @@
             "away": 0.186
           },
           "pick": "home",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "home",
+          "score": "3-2",
+          "correct": true,
+          "log_loss": 0.589
         },
         {
           "date": "2026-11-21",
@@ -100,10 +269,10 @@
             "away": 0.165
           },
           "pick": "home",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "home",
+          "score": "2-0",
+          "correct": true,
+          "log_loss": 0.44
         },
         {
           "date": "2026-11-21",
@@ -115,10 +284,10 @@
             "away": 0.412
           },
           "pick": "away",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "draw",
+          "score": "2-2",
+          "correct": false,
+          "log_loss": 1.211
         },
         {
           "date": "2026-11-22",
@@ -130,10 +299,10 @@
             "away": 0.558
           },
           "pick": "away",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "home",
+          "score": "2-0",
+          "correct": false,
+          "log_loss": 1.72
         },
         {
           "date": "2026-11-22",
@@ -145,10 +314,10 @@
             "away": 0.275
           },
           "pick": "home",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "home",
+          "score": "4-0",
+          "correct": true,
+          "log_loss": 0.766
         },
         {
           "date": "2026-11-23",
@@ -160,17 +329,17 @@
             "away": 0.397
           },
           "pick": "away",
-          "result": null,
-          "score": null,
-          "correct": null,
-          "log_loss": null
+          "result": "home",
+          "score": "4-0",
+          "correct": false,
+          "log_loss": 1.094
         }
       ],
-      "played": 0,
-      "pending": 10,
-      "correct": 0,
-      "log_loss": null,
-      "baseline_log_loss": null
+      "played": 10,
+      "pending": 0,
+      "correct": 4,
+      "log_loss": 1.07,
+      "baseline_log_loss": 1.048
     },
     {
       "snapshot": null,
@@ -187,13 +356,6 @@
         },
         {
           "date": "2026-11-07",
-          "home": "Fulham",
-          "away": "Newcastle",
-          "score": "1-1",
-          "result": "draw"
-        },
-        {
-          "date": "2026-11-07",
           "home": "Nott'm Forest",
           "away": "Man City",
           "score": "3-1",
@@ -201,10 +363,10 @@
         },
         {
           "date": "2026-11-07",
-          "home": "Leeds",
-          "away": "Tottenham",
-          "score": "1-0",
-          "result": "home"
+          "home": "Fulham",
+          "away": "Newcastle",
+          "score": "1-1",
+          "result": "draw"
         },
         {
           "date": "2026-11-07",
@@ -214,16 +376,9 @@
           "result": "home"
         },
         {
-          "date": "2026-11-08",
-          "home": "Ipswich",
-          "away": "Bournemouth",
-          "score": "1-2",
-          "result": "away"
-        },
-        {
-          "date": "2026-11-08",
-          "home": "Sunderland",
-          "away": "Chelsea",
+          "date": "2026-11-07",
+          "home": "Leeds",
+          "away": "Tottenham",
           "score": "1-0",
           "result": "home"
         },
@@ -243,6 +398,20 @@
         },
         {
           "date": "2026-11-08",
+          "home": "Ipswich",
+          "away": "Bournemouth",
+          "score": "1-2",
+          "result": "away"
+        },
+        {
+          "date": "2026-11-08",
+          "home": "Sunderland",
+          "away": "Chelsea",
+          "score": "1-0",
+          "result": "home"
+        },
+        {
+          "date": "2026-11-08",
           "home": "Man United",
           "away": "Aston Villa",
           "score": "4-4",
@@ -258,15 +427,29 @@
       "matches": [
         {
           "date": "2026-10-31",
-          "home": "Chelsea",
-          "away": "Man United",
-          "score": "2-0",
-          "result": "home"
+          "home": "Aston Villa",
+          "away": "Fulham",
+          "score": "1-1",
+          "result": "draw"
         },
         {
           "date": "2026-10-31",
-          "home": "Bournemouth",
-          "away": "Leeds",
+          "home": "Man City",
+          "away": "Brighton",
+          "score": "0-1",
+          "result": "away"
+        },
+        {
+          "date": "2026-10-31",
+          "home": "Hull",
+          "away": "Ipswich",
+          "score": "2-2",
+          "result": "draw"
+        },
+        {
+          "date": "2026-10-31",
+          "home": "Tottenham",
+          "away": "Crystal Palace",
           "score": "2-0",
           "result": "home"
         },
@@ -279,38 +462,24 @@
         },
         {
           "date": "2026-10-31",
-          "home": "Coventry",
-          "away": "Sunderland",
-          "score": "3-1",
-          "result": "home"
-        },
-        {
-          "date": "2026-10-31",
-          "home": "Hull",
-          "away": "Ipswich",
-          "score": "2-2",
-          "result": "draw"
-        },
-        {
-          "date": "2026-10-31",
-          "home": "Man City",
-          "away": "Brighton",
-          "score": "0-1",
-          "result": "away"
-        },
-        {
-          "date": "2026-10-31",
-          "home": "Tottenham",
-          "away": "Crystal Palace",
+          "home": "Bournemouth",
+          "away": "Leeds",
           "score": "2-0",
           "result": "home"
         },
         {
           "date": "2026-10-31",
-          "home": "Aston Villa",
-          "away": "Fulham",
-          "score": "1-1",
-          "result": "draw"
+          "home": "Chelsea",
+          "away": "Man United",
+          "score": "2-0",
+          "result": "home"
+        },
+        {
+          "date": "2026-10-31",
+          "home": "Coventry",
+          "away": "Sunderland",
+          "score": "3-1",
+          "result": "home"
         },
         {
           "date": "2026-11-01",
@@ -371,27 +540,6 @@
         },
         {
           "date": "2026-10-25",
-          "home": "Sunderland",
-          "away": "Leeds",
-          "score": "0-0",
-          "result": "draw"
-        },
-        {
-          "date": "2026-10-25",
-          "home": "Man United",
-          "away": "Bournemouth",
-          "score": "0-3",
-          "result": "away"
-        },
-        {
-          "date": "2026-10-25",
-          "home": "Liverpool",
-          "away": "Brighton",
-          "score": "2-0",
-          "result": "home"
-        },
-        {
-          "date": "2026-10-25",
           "home": "Crystal Palace",
           "away": "Newcastle",
           "score": "0-2",
@@ -402,6 +550,27 @@
           "home": "Hull",
           "away": "Brentford",
           "score": "1-1",
+          "result": "draw"
+        },
+        {
+          "date": "2026-10-25",
+          "home": "Liverpool",
+          "away": "Brighton",
+          "score": "2-0",
+          "result": "home"
+        },
+        {
+          "date": "2026-10-25",
+          "home": "Man United",
+          "away": "Bournemouth",
+          "score": "0-3",
+          "result": "away"
+        },
+        {
+          "date": "2026-10-25",
+          "home": "Sunderland",
+          "away": "Leeds",
+          "score": "0-0",
           "result": "draw"
         }
       ]
@@ -418,13 +587,6 @@
           "away": "Aston Villa",
           "score": "0-1",
           "result": "away"
-        },
-        {
-          "date": "2026-10-17",
-          "home": "Man City",
-          "away": "Ipswich",
-          "score": "3-2",
-          "result": "home"
         },
         {
           "date": "2026-10-17",
@@ -448,10 +610,10 @@
           "result": "home"
         },
         {
-          "date": "2026-10-18",
-          "home": "Bournemouth",
-          "away": "Sunderland",
-          "score": "2-0",
+          "date": "2026-10-17",
+          "home": "Man City",
+          "away": "Ipswich",
+          "score": "3-2",
           "result": "home"
         },
         {
@@ -474,6 +636,13 @@
           "away": "Arsenal",
           "score": "0-1",
           "result": "away"
+        },
+        {
+          "date": "2026-10-18",
+          "home": "Bournemouth",
+          "away": "Sunderland",
+          "score": "2-0",
+          "result": "home"
         },
         {
           "date": "2026-10-19",
@@ -499,8 +668,15 @@
         },
         {
           "date": "2026-10-10",
-          "home": "Arsenal",
-          "away": "Leeds",
+          "home": "Sunderland",
+          "away": "Brighton",
+          "score": "0-2",
+          "result": "away"
+        },
+        {
+          "date": "2026-10-10",
+          "home": "Ipswich",
+          "away": "Fulham",
           "score": "2-1",
           "result": "home"
         },
@@ -513,24 +689,24 @@
         },
         {
           "date": "2026-10-10",
+          "home": "Arsenal",
+          "away": "Leeds",
+          "score": "2-1",
+          "result": "home"
+        },
+        {
+          "date": "2026-10-10",
           "home": "Chelsea",
           "away": "Bournemouth",
           "score": "5-1",
           "result": "home"
         },
         {
-          "date": "2026-10-10",
-          "home": "Ipswich",
-          "away": "Fulham",
-          "score": "2-1",
+          "date": "2026-10-11",
+          "home": "Crystal Palace",
+          "away": "Nott'm Forest",
+          "score": "3-1",
           "result": "home"
-        },
-        {
-          "date": "2026-10-10",
-          "home": "Sunderland",
-          "away": "Brighton",
-          "score": "0-2",
-          "result": "away"
         },
         {
           "date": "2026-10-11",
@@ -545,13 +721,6 @@
           "away": "Man City",
           "score": "0-3",
           "result": "away"
-        },
-        {
-          "date": "2026-10-11",
-          "home": "Crystal Palace",
-          "away": "Nott'm Forest",
-          "score": "3-1",
-          "result": "home"
         },
         {
           "date": "2026-10-12",
@@ -577,20 +746,6 @@
         },
         {
           "date": "2026-09-19",
-          "home": "Nott'm Forest",
-          "away": "Coventry",
-          "score": "0-1",
-          "result": "away"
-        },
-        {
-          "date": "2026-09-19",
-          "home": "Newcastle",
-          "away": "Hull",
-          "score": "2-1",
-          "result": "home"
-        },
-        {
-          "date": "2026-09-19",
           "home": "Everton",
           "away": "Ipswich",
           "score": "1-0",
@@ -611,18 +766,18 @@
           "result": "home"
         },
         {
-          "date": "2026-09-20",
-          "home": "Bournemouth",
-          "away": "Liverpool",
-          "score": "0-1",
-          "result": "away"
+          "date": "2026-09-19",
+          "home": "Newcastle",
+          "away": "Hull",
+          "score": "2-1",
+          "result": "home"
         },
         {
-          "date": "2026-09-20",
-          "home": "Leeds",
-          "away": "Crystal Palace",
-          "score": "0-0",
-          "result": "draw"
+          "date": "2026-09-19",
+          "home": "Nott'm Forest",
+          "away": "Coventry",
+          "score": "0-1",
+          "result": "away"
         },
         {
           "date": "2026-09-20",
@@ -636,6 +791,20 @@
           "home": "Fulham",
           "away": "Man United",
           "score": "1-1",
+          "result": "draw"
+        },
+        {
+          "date": "2026-09-20",
+          "home": "Bournemouth",
+          "away": "Liverpool",
+          "score": "0-1",
+          "result": "away"
+        },
+        {
+          "date": "2026-09-20",
+          "home": "Leeds",
+          "away": "Crystal Palace",
+          "score": "0-0",
           "result": "draw"
         }
       ]
@@ -662,13 +831,6 @@
         },
         {
           "date": "2026-09-12",
-          "home": "Liverpool",
-          "away": "Fulham",
-          "score": "0-0",
-          "result": "draw"
-        },
-        {
-          "date": "2026-09-12",
           "home": "Crystal Palace",
           "away": "Ipswich",
           "score": "2-3",
@@ -676,9 +838,9 @@
         },
         {
           "date": "2026-09-12",
-          "home": "Chelsea",
-          "away": "Hull",
-          "score": "2-2",
+          "home": "Liverpool",
+          "away": "Fulham",
+          "score": "0-0",
           "result": "draw"
         },
         {
@@ -694,6 +856,13 @@
           "away": "Nott'm Forest",
           "score": "1-2",
           "result": "away"
+        },
+        {
+          "date": "2026-09-12",
+          "home": "Chelsea",
+          "away": "Hull",
+          "score": "2-2",
+          "result": "draw"
         },
         {
           "date": "2026-09-13",
@@ -733,24 +902,17 @@
         },
         {
           "date": "2026-09-05",
-          "home": "Nott'm Forest",
-          "away": "Tottenham",
-          "score": "0-0",
+          "home": "Newcastle",
+          "away": "Bournemouth",
+          "score": "2-2",
           "result": "draw"
         },
         {
           "date": "2026-09-05",
-          "home": "Hull",
-          "away": "Aston Villa",
-          "score": "0-0",
+          "home": "Brentford",
+          "away": "Sunderland",
+          "score": "1-1",
           "result": "draw"
-        },
-        {
-          "date": "2026-09-05",
-          "home": "Man City",
-          "away": "Coventry",
-          "score": "1-0",
-          "result": "home"
         },
         {
           "date": "2026-09-05",
@@ -768,16 +930,23 @@
         },
         {
           "date": "2026-09-05",
-          "home": "Brentford",
-          "away": "Sunderland",
-          "score": "1-1",
+          "home": "Man City",
+          "away": "Coventry",
+          "score": "1-0",
+          "result": "home"
+        },
+        {
+          "date": "2026-09-05",
+          "home": "Nott'm Forest",
+          "away": "Tottenham",
+          "score": "0-0",
           "result": "draw"
         },
         {
           "date": "2026-09-05",
-          "home": "Newcastle",
-          "away": "Bournemouth",
-          "score": "2-2",
+          "home": "Hull",
+          "away": "Aston Villa",
+          "score": "0-0",
           "result": "draw"
         },
         {
@@ -825,16 +994,16 @@
         },
         {
           "date": "2026-08-29",
-          "home": "Liverpool",
-          "away": "Nott'm Forest",
-          "score": "2-2",
+          "home": "Bournemouth",
+          "away": "Everton",
+          "score": "1-1",
           "result": "draw"
         },
         {
           "date": "2026-08-29",
-          "home": "Bournemouth",
-          "away": "Everton",
-          "score": "1-1",
+          "home": "Liverpool",
+          "away": "Nott'm Forest",
+          "score": "2-2",
           "result": "draw"
         },
         {
@@ -889,27 +1058,6 @@
         },
         {
           "date": "2026-08-22",
-          "home": "Nott'm Forest",
-          "away": "Leeds",
-          "score": "0-1",
-          "result": "away"
-        },
-        {
-          "date": "2026-08-22",
-          "home": "Ipswich",
-          "away": "Sunderland",
-          "score": "2-1",
-          "result": "home"
-        },
-        {
-          "date": "2026-08-22",
-          "home": "Brentford",
-          "away": "Tottenham",
-          "score": "3-0",
-          "result": "home"
-        },
-        {
-          "date": "2026-08-22",
           "home": "Hull",
           "away": "Man United",
           "score": "2-0",
@@ -920,6 +1068,27 @@
           "home": "Everton",
           "away": "Crystal Palace",
           "score": "2-0",
+          "result": "home"
+        },
+        {
+          "date": "2026-08-22",
+          "home": "Nott'm Forest",
+          "away": "Leeds",
+          "score": "0-1",
+          "result": "away"
+        },
+        {
+          "date": "2026-08-22",
+          "home": "Brentford",
+          "away": "Tottenham",
+          "score": "3-0",
+          "result": "home"
+        },
+        {
+          "date": "2026-08-22",
+          "home": "Ipswich",
+          "away": "Sunderland",
+          "score": "2-1",
           "result": "home"
         },
         {

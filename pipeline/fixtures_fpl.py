@@ -24,17 +24,20 @@ def get_json(path):
 
 
 def download_fpl_fixtures():
-    """Save the NEXT gameweek's unfinished fixtures to data/raw/fixtures_fpl.csv."""
+    """Save the NEXT gameweek's fixtures that have not kicked off yet to data/raw/fixtures_fpl.csv."""
     RAW.mkdir(parents=True, exist_ok=True)
 
     teams = get_json("bootstrap-static/")["teams"]
     names = {t["id"]: NAME_MAP.get(t["name"], t["name"]) for t in teams}
 
+    now = pd.Timestamp.now(tz="UTC")
     rows = []
     for f in get_json("fixtures/"):
         if f["finished"] or f["event"] is None or f["kickoff_time"] is None:
             continue
         kickoff = pd.to_datetime(f["kickoff_time"], utc=True)
+        if kickoff <= now:
+            continue          # already kicked off, even if FPL has not marked it finished
         rows.append({
             "Date": kickoff.strftime("%d/%m/%Y"),
             "HomeTeam": names[f["team_h"]],

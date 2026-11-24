@@ -54,8 +54,8 @@ def predict_next_matchweek():
     }
 
     if upcoming is None:
-        out["message"] = ("No Premier League fixtures are available right now "
-                          "(international break?). Check back after the next update.")
+        out["message"] = ("No upcoming Premier League fixtures were found yet. "
+                    "The next round's predictions will appear after the next update.")
         path = write_json(out)
         print("no fixtures; wrote an empty page file:", path)
         return
