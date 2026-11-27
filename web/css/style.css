@@ -370,3 +370,52 @@ th { color: var(--muted); font-size: 0.85rem; font-weight: 600; }
     animation: none !important;
   }
 }
+
+.league { margin-top: 1.5rem; }
+.league th { white-space: nowrap; }
+.league td { padding-block: 0.7rem; white-space: nowrap; }
+.league tbody tr:last-child td { border-bottom: 0; }
+.league th:first-child, .league td.pos { text-align: left; color: var(--muted); }
+.league .form-cell { text-align: left; }
+
+.league .code {
+  display: inline-block;
+  min-width: 2.75rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  text-align: center;
+  font-stretch: 75%;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+}
+.league .club-name {
+  margin-left: 0.65rem;
+  font-stretch: 75%;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.league td.pts {
+  font-stretch: 75%;
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.form { display: inline-flex; gap: 3px; vertical-align: middle; }
+.mark {
+  display: inline-grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.mark[data-r="W"] { background: var(--good); color: #fff; }
+.mark[data-r="D"] { background: var(--chalk); color: var(--muted); box-shadow: inset 0 0 0 1px var(--stone); }
+.mark[data-r="L"] { background: var(--bad); color: #fff; }
+
+@media (max-width: 640px) {
+  .league .opt { display: none; }
+}
