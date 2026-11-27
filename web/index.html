@@ -3,21 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#EDF1E8">
   <title>EPL Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2312281D'/><rect x='5' y='13' width='10' height='6' rx='3' fill='%23DB0007'/><rect x='16' y='13' width='4' height='6' rx='2' fill='%23B7C1B3'/><rect x='21' y='13' width='6' height='6' rx='3' fill='%236CABDD'/></svg>">
 </head>
 <body>
-  <header>
-    <h1>⚽ EPL Hub</h1>
-    <nav id="nav"></nav>
+  <header class="masthead">
+    <a class="wordmark" href="#">EPL Hub</a>
+    <nav id="nav" aria-label="Sections"></nav>
   </header>
 
-  <main id="app">
-   
-  </main>
+  <main id="app"></main>
 
-  <footer>
-    <p class="muted">Probabilities, not guarantees. Football is noisy.</p>
+  <footer class="foot">
+    <p>Probabilities from a statistical model, not betting advice. Football is noisy.</p>
+    <p>Results from football-data.co.uk. Fixtures from the Fantasy Premier League API. Not affiliated with the Premier League.</p>
   </footer>
 
   <script type="module" src="js/main.js"></script>
